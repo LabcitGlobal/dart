@@ -17,6 +17,11 @@ void main() {
   final serie1 = new SerieTv.fromJson(parsedJson);
   print('Name: ${serie1.name}');
   print('Duration: ${serie1.duration}');
+
+  Triangle triangle = new Triangle();
+  triangle.base = 50.0;
+  triangle.height = 80.0;
+  print(triangle.area);
 }
 
 class MovieTv {
@@ -35,4 +40,27 @@ class SerieTv {
     name = parsedJson["name"];
     duration = parsedJson["duration"];
   }
+}
+
+class Triangle {
+  double _base;
+  double _height;
+
+  set base(double value) {
+    if (value <= 0) {
+      throw ('Invalid Data');
+    }
+    _base = value;
+  }
+
+  set height(double value) {
+    if (value <= 0) {
+      throw ('Invalid Data');
+    }
+    _height = value;
+  }
+
+  double get area => (_base * _height) / 2;
+
+  toString() => '$_base';
 }
